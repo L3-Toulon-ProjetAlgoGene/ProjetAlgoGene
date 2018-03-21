@@ -18,6 +18,7 @@ public:
   float distance();
   Cchemin& operator=(const Cchemin&);
   Cville operator[](int);
+  int getNb();
 };
 
 #endif

@@ -56,4 +56,7 @@ Cchemin& Cchemin :: operator=(const Cchemin& C){
 Cville Cchemin :: operator[](int i){
   return chem[i];
 }
-//faire une methode pour calc distance
+
+int Cchemin :: getNb(){
+  return nb;
+}
