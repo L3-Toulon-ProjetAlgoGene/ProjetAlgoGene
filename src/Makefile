@@ -1,5 +1,5 @@
-test: Cpopulation.o Cville.o Cchemin.o main.o
-	g++ Cpopulation.o Cville.o Cchemin.o main.o -o test
+main.exe: Cpopulation.o Cville.o Cchemin.o main.o
+	g++ $^ -o main.exe
 
 main.o: cpp/main.cpp inc/Cville.h inc/Cpopulation.h inc/Cchemin.h
 	g++ -c cpp/main.cpp
