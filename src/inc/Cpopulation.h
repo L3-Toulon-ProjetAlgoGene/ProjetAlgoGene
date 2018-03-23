@@ -3,6 +3,7 @@
 
 #include"../inc/Cchemin.h"
 
+typedef Cchemin* ptchemin;
 
 class Cpopulation
   {

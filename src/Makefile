@@ -1,4 +1,4 @@
-main.exe: Cpopulation.o Cville.o Cchemin.o main.o
+main.exe: Cpopulation.o Cville.o Cchemin.o Cselection.o main.o
 	g++ $^ -o main.exe
 
 main.o: cpp/main.cpp inc/Cville.h inc/Cpopulation.h inc/Cchemin.h
@@ -13,5 +13,5 @@ Cville.o: inc/Cville.h cpp/Cville.cpp
 Cchemin.o: inc/Cchemin.h cpp/Cchemin.cpp inc/Cville.h
 	g++ -c cpp/Cchemin.cpp
 
-Cselection.o: inc/Cselection.h inc/Cpopulation.h inc/Cchemin.h cpp/Csselection.cpp
+Cselection.o: inc/Cselection.h inc/Cpopulation.h inc/Cchemin.h cpp/Cselection.cpp
 	g++ -c cpp/Cselection.cpp
