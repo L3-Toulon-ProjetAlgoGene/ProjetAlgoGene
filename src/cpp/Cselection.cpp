@@ -13,7 +13,8 @@ Cselection::Cselection()
 
 Cselection::Cselection(ptchemin& a, ptchemin& b)
   {
-  //int n = // recuperer la taille d'un chemin
+  int n = a.getNb();
+
   tab = new Cchemin[n];
   for(int i = 0; i < n; i++)
     tab[i] = a[i];
