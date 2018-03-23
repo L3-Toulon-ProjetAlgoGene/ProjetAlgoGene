@@ -1,31 +1,37 @@
 #include "../inc/Cselection.h"
 #include "../inc/Cpopulation.h"
 #include "../inc/Cchemin.h"
+#include "../inc/Cville.h"
 #include <iostream>
 
 
 
 Cselection::Cselection()
   {
-  tab = 0;
+  tab;
   }
 
 
 Cselection::Cselection(ptchemin& a, ptchemin& b)
   {
-  //int n = // recuperer la taille d'un chemin
-  tab = new Cchemin[n];
-  for(int i = 0; i < n; i++)
-    tab[i] = a[i];
-  for(int i = n; i < taille; i++)
-    tab[i] = b[i];
+  // attention si tab est impair !!
+  int n = a[0].getNb();
+  ptrCville* aux;
+  aux = new ptrCville[n];
+  int inter = n/2;
+
+  for(int i = 0; i < inter; i++)
+    aux[i] = a[i].getTab();
+  for(int i = inter+1; i < n; i++)
+    aux[i] = b[i].getTab();
+
   // verification que toutes les villes sont uniques !!!
   }
 
-Cselection::~Cselection()
-  {
-  delete tab[];
-  }
+// Cselection::~Cselection()
+//   {
+//   delete tab[];
+//   }
 
 // ptchemin& ptchemin::operator=(const ptchemin& a)
 //   {
