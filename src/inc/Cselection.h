@@ -10,10 +10,10 @@ class Cselection
   private:
     Cchemin tab;
   public:
-    selection();
-    selection(ptchemin&, ptchemin&);
-    ~selection();
-    ptchemin& operator=(const ptchemin&);
+    Cselection();
+    Cselection(ptchemin&, ptchemin&);
+    ~Cselection();
+    // ptchemin& operator=(const ptchemin&);
 
 
 
