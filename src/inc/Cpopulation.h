@@ -9,7 +9,7 @@ class Cpopulation
   {
   private:
     int taille_pop;
-    Cchemin* tab_pop;
+    ptchemin tab_pop;
 
   public:
     Cpopulation();
@@ -17,6 +17,7 @@ class Cpopulation
     ~Cpopulation();
     void affiche();
     Cpopulation& operator=(const Cpopulation&);
+    Cchemin operator[](const int);
 
   };
 

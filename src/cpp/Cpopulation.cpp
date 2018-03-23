@@ -58,7 +58,7 @@ Cpopulation& Cpopulation::operator=(const Cpopulation& e)
   return *this;
   }
 
-  Cchemin Cpopulation :: operator[](int i)
+Cchemin Cpopulation :: operator[](const int i)
     {
     return tab_pop[i];
     }
