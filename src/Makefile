@@ -1,7 +1,9 @@
-main.exe: Cpopulation.o Cville.o Cchemin.o main.o
-	g++ $^ -o main.exe
+FLAGS = -L./libs -lcng -L. -L/usr/include/GL -L/usr/X11R6/lib -lcng -lglut -lGLU -lGL -lX11 -lm
 
-main.o: cpp/main.cpp inc/Cville.h inc/Cpopulation.h inc/Cchemin.h
+main.exe: Cpopulation.o Cville.o Cchemin.o main.o
+	g++ $^ -o main.exe $(FLAGS)
+
+main.o: cpp/main.cpp inc/Cville.h inc/Cpopulation.h inc/Cchemin.h inc/cng.h
 	g++ -c cpp/main.cpp
 
 Cpopulation.o: inc/Cpopulation.h cpp/Cpopulation.cpp inc/Cchemin.h
