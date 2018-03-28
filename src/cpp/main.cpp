@@ -16,6 +16,7 @@ int main(int argc, char* argv[])
   cng_put_pixel(Marseille.getcoord('x'), Marseille.getcoord('y'));
   cng_current_color(0.6, 0.2, 0.7);
   cng_line(Paris.getcoord('x'), Paris.getcoord('y'), Marseille.getcoord('x'), Marseille.getcoord('y'));
+  cng_swap_screen();
   cng_main_loop();
   cng_destroy_window();
 
