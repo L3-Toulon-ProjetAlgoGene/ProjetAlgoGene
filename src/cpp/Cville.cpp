@@ -15,8 +15,8 @@ void Cville::init(){
   static int i=0;
   srand(time(NULL) + i);
   ville=i++;
-  x=rand()%1500;
-  y=rand()%1500;
+  x=rand()%1000;
+  y=rand()%1000;
   cout<<"ville= "<<ville<<endl;
   cout<<"x= "<<x<<endl;
   cout<<"y= "<<y<<endl;
@@ -39,5 +39,5 @@ float Cville::getcoord(char c){
 }
 
 Cville::~Cville(){
-  cout<<"destructeur utilisé!"<<endl;
+  //cout<<"destructeur utilisé!"<<endl;
 }
