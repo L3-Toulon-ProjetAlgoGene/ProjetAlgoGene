@@ -13,7 +13,7 @@ class Cpopulation
 
   public:
     Cpopulation();
-    Cpopulation(ptchemin&, int);
+    Cpopulation(const ptchemin&, int);
     ~Cpopulation();
     void affiche();
     Cpopulation& operator=(const Cpopulation&);

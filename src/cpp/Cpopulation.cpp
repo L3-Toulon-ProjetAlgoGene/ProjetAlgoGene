@@ -25,7 +25,7 @@ Cpopulation::Cpopulation()
   tab_pop = 0;
   }
 
-Cpopulation::Cpopulation(ptchemin& a, int nb_chem)
+Cpopulation::Cpopulation(const ptchemin& a, int nb_chem)
   {
   taille_pop = nb_chem;
   tab_pop = new Cchemin[taille_pop];
