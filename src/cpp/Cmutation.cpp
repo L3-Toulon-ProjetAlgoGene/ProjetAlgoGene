@@ -1,39 +1,56 @@
-#include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include "mutation.h"
-using namespace std;
+#include "Cmutation.h"
 
-void simulpop(int *tab){
-	
-	tab=new int[5];
-	int i;
-	for(i=0;i<8;i++){
-		tab[i]=i;
-		cout<<tab[i]<<endl;
-		}
+//constructeur par défaut
+Cmutation::Cmutation(){
+	new_valeur=0;
+	choix_chemin=0;
+	choix_empl=0;
 }
 
 
-void aleatoire(int * tab, int nb_v){
-        
-        for(int i=0;i<nb_v;i++){
-		int new_v=rand()%150;
-		cout<<"new_v="<<new_v<<endl;
-        	int emp=rand()%6;
-		cout<<"emp="<<emp<<endl;
-		tab[emp]=new_v;
-	}
+//Constructeur par paramètres
+Cmutation::Cmutation(int new_v,int choix_emp,int choix_chm){
+
+	//nouvelle valeur
+	int new_valeur=new_v;
+	//emplacement
+  int choix_empl=choix_emp;
+	//chemin
+	int choix_chemin=choix_chm;
+
 }
 
-void Affiche_tab(int *tab){
-	for(int i=0;i<8;i++){
-		cout<<tab[i]<<endl;
-	}
+
+int Cmutation::chemin_aleatoire(Cpopulation &pop){
+	srand(time(NULL));
+	//taille de la population
+	int taille_pop=pop.gettaille();
+	//choisir le chemin
+	int choix_chemin=rand()%taille_pop;
+
+	return pop[choix_chemin];
 }
-	
 
+int Cmutation::valeur_aleatoire(){
+	srand(time(NULL));
+	int new_valeur=rand()%150;
+	return new_valeur;
+}
 
+int Cmutation::emplacement_aleatoire(Cchemin &chm){
+	srand(time(NULL));
+	//taille du chemin
+	int taille_chemin=chm.getNb();
+	//choisir l'emplacement
+	int choix_empl=rand()%taille_chemin;
+	return choix_empl;
+}
 
+void Cmutation::Affiche(){
+	cout<<"nouvelle valeur= "<<new_valeur<<endl;
+	cout<<"choix du chemin= "<<choix_chemin<<endl;
+	cout<<"choix de l'emplacement= "<<choix_empl<<endl;
 
-
+}
