@@ -62,3 +62,8 @@ Cchemin Cpopulation :: operator[](const int i)
     {
     return tab_pop[i];
     }
+
+int Cpopulation::gettaille()
+  {
+  return taille_pop;
+  }
