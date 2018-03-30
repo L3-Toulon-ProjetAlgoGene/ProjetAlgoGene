@@ -20,7 +20,7 @@ class Cselection
   };
 
 
-
+doublon(intez);
 
 
 #endif
