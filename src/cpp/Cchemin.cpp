@@ -7,7 +7,7 @@ Cchemin :: Cchemin(){
   chem = 0;
 }
 
-Cchemin :: Cchemin(ptrCville& v, int nombre){
+Cchemin :: Cchemin(const ptrCville& v, int nombre){
   nb = nombre;
   chem = new Cville[nb];
   for (int i = 0; i < nb; i++) {

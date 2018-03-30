@@ -11,7 +11,7 @@ private:
   int nb;
 public:
   Cchemin();
-  Cchemin(ptrCville&, int);
+  Cchemin(const ptrCville&, int);
   ~Cchemin();
   void putVal(Cville, int);
   ptrCville getTab();
