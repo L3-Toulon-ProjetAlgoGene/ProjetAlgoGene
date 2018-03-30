@@ -57,20 +57,17 @@ int* rmpls(int* tab1, int* tab2, int nb)
 
 void verif(int* t, int ind, int* d, int n)
   {
-  // i: indice pour parcourir lentement chaque element de t
+  bool verifi;
+  // i: indice pour parcourir lentement chaque element de d
   for(int i = 0; i < n; i++)
     {
     verifi = 0;
-    //j: va parcourrir chaque element du tab de donnees
     for(int j = 0; j < n; j++)
-      {
-      if(t[i] == d[j])
-        j = n;
-      cout<< t[i]<< endl;
-      break;
-      }
+      if(d[i] == t[j])
+        verifi = 1;
+    if(verifi == 0)
+      t[ind] = d[i];
     }
-  cout<< "indice= "<< ind << " "<< "verif= "<< verifi<< endl;
   }
 
 void doublons(int* t, int* d, int nb)
@@ -121,32 +118,10 @@ int main(void)
   cout<< endl;
 
   doublons(tb, donnees, n);
-
-
-
-
-
-  // int donnees[n] = {0,1,2,3,4,5,6,7,8,9};
-  // int tab[10] = {0,1,2,3,4,5,6,7,8,9};
-  // // int tab2[m] = {0,1,2,3,4,5,6,7,8,9};
-  // int t[n];
-  //
-  // cout<< "tab= ";
-  // for(int i = 0; i < n; i++)
-  //   cout<< tab[i]<< " ";
-  // cout<< endl;
-  //
-  // for(int i = 0; i < n/2; i++)
-  //   t[i] = tab[i];
-  //
-  // cout<< "t= ";
-  // for(int i = 0; i < n/2; i++)
-  //   cout<< t[i]<< " ";
-  // cout<< endl;
-
-
-
-
+  cout<< "tbfin= ";
+  for (int i = 0; i < n; i++)
+    cout<< tb[i]<< " ";
+  cout<< endl;
 
   return 0;
   }
