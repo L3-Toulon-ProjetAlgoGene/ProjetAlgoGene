@@ -18,6 +18,7 @@ class Cpopulation
     void affiche();
     Cpopulation& operator=(const Cpopulation&);
     Cchemin operator[](const int);
+    int gettaille();
 
   };
 
