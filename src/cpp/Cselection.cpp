@@ -1,10 +1,8 @@
 #include "../inc/Cselection.h"
 #include "../inc/Cpopulation.h"
-#include "../inc/Cchemin.h"
-#include "../inc/Cville.h"
 #include <iostream>
 
-
+using namespace std;
 
 Cselection::Cselection()
   {
@@ -27,6 +25,42 @@ Cselection::Cselection(ptchemin& a, ptchemin& b)
 
   // verification que toutes les villes sont uniques !!!
   }
+
+
+ptchemin Cselection::selec_naive(const ptchemin& a, const ptchemin& b, const ptchemin& d)
+  {
+  int taille_tab = a->getNb();
+  cout<< taille_tab<< endl;
+  // Attention, il faut une fonction ou une classe pour le tableau de donnees
+  int taille_donees = d->getNb();
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Cselection::~Cselection()
 //   {
