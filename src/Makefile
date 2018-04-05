@@ -1,4 +1,4 @@
-FLAGS = -L./libs -lcng -L. -L/usr/include/GL -L/usr/X11R6/lib -lcng -lglut -lGLU -lGL -lX11 -lm
+FLAGS = -L./libs -L. -L/usr/include/GL -L/usr/X11R6/lib -lcng -lglut -lGLU -lGL -lX11 -lm
 
 main.exe: Cpopulation.o Cville.o Cchemin.o Cselection.o main.o
 	g++ $^ -o main.exe $(FLAGS)
