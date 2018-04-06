@@ -10,42 +10,34 @@ Cmutation::Cmutation(){
 }
 
 
-//Constructeur par paramètres
-Cmutation::Cmutation(int new_v,int choix_emp,int choix_chm){
-
-	//nouvelle valeur
-	int new_valeur=new_v;
-	//emplacement
-  int choix_empl=choix_emp;
-	//chemin
-	int choix_chemin=choix_chm;
-
-}
 
 
-int Cmutation::chemin_aleatoire(Cpopulation &pop){
+Cchemin Cmutation::chemin_aleatoire(Cpopulation &pop){
 	srand(time(NULL));
 	//taille de la population
 	int taille_pop=pop.gettaille();
+	cout<<"taille= "<<taille_pop<<endl;
 	//choisir le chemin
-	int choix_chemin=rand()%taille_pop;
+	choix_chemin=rand()%taille_pop;
+	cout<<"choix_chemin= "<<choix_chemin<<endl;
 
 	return pop[choix_chemin];
 }
 
 int Cmutation::valeur_aleatoire(){
 	srand(time(NULL));
-	int new_valeur=rand()%150;
+	new_valeur=rand()%150;
+	cout<<"val= "<<new_valeur<<endl;
 	return new_valeur;
 }
 
-int Cmutation::emplacement_aleatoire(Cchemin &chm){
+Cville Cmutation::emplacement_aleatoire(Cchemin &chm){
 	srand(time(NULL));
 	//taille du chemin
 	int taille_chemin=chm.getNb();
 	//choisir l'emplacement
-	int choix_empl=rand()%taille_chemin;
-	return choix_empl;
+	choix_empl=rand()%taille_chemin;
+	return chm[choix_empl];
 }
 
 void Cmutation::Affiche(){
