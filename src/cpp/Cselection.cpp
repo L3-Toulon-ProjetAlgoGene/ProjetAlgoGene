@@ -40,7 +40,7 @@ ptchemin Cselection::selec_naive(const ptchemin& a, const ptchemin& b, const ptc
 
 Cchemin remplissage(Cchemin t1, Cchemin t2, int nb)
   {
-  int* t = new int[nb];
+  int* t = new Cville[nb];
   int fin1 = nb/2;
   for(int i = 0; i < fin1; i++)
     t[i] = t1[i];
