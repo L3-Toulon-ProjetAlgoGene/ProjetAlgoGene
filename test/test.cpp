@@ -1,4 +1,4 @@
-#include "Cselection.h"
+//#include "Cselection.h"
 #include <iostream>
 
 using namespace std;
@@ -19,6 +19,7 @@ int* init_tab1(int nb)
     tab[i] = i;
   return tab;
   }
+
 
 
 int* init_tab2(int nb)
@@ -130,9 +131,10 @@ void final(void)
 
 int main(void)
   {
-  // final();
-  int* tb1 = init_tab1(n);
-  int* tb2 = init_tab2(n);
-  int* donnees = init_tab1(n);
+  final();
+  // int n = 10;
+  // int* tb1 = init_tab1(n);
+  // int* tb2 = init_tab2(n);
+  // int* donnees = init_tab1(n);
 
   }
