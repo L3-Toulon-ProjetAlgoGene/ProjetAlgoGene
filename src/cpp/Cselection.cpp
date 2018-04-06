@@ -40,13 +40,13 @@ ptchemin Cselection::selec_naive(const ptchemin& a, const ptchemin& b, const ptc
 
 Cchemin remplissage(Cchemin t1, Cchemin t2, int nb)
   {
-  int* t = new Cville[nb];
+  Cville* t = new Cville[nb];
   int fin1 = nb/2;
   for(int i = 0; i < fin1; i++)
     t[i] = t1[i];
   cout<< "tb11= ";
   for(int i = 0; i < fin1; i++)
-    cout<< t[i]<< " ";
+    cout<< t[i].getname()<< " ";
   cout<< endl;
 
   for(int i = fin1; i < nb; i++)
@@ -54,7 +54,7 @@ Cchemin remplissage(Cchemin t1, Cchemin t2, int nb)
 
   cout<< "tb22= ";
   for(int i = fin1; i < nb; i++)
-    cout<< t[i]<< " ";
+    cout<< t[i].getname()<< " ";
   cout<< endl;
 
   Cchemin tableau(t, nb);
