@@ -15,10 +15,9 @@ class Cmutation{
 
   public:
     Cmutation();
-    Cmutation(int,int,int);
-    int chemin_aleatoire(Cpopulation &);
+    Cchemin chemin_aleatoire(Cpopulation &);
     int valeur_aleatoire();
-    int emplacement_aleatoire(Cchemin &);
+    Cville emplacement_aleatoire(Cchemin &);
     void Affiche();
 
 
