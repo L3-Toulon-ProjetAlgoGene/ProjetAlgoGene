@@ -1,3 +1,4 @@
+#include "Cselection.h"
 #include <iostream>
 
 using namespace std;
@@ -86,42 +87,52 @@ void doublons(int* t, int* d, int nb)
 
 
 
+void final(void)
+  {
+    int n = 10;
+    int m = 10;
+
+    // premier tableau
+    int* tb1 = init_tab1(n);
+    int* donnees = init_tab1(n);
+
+    cout<< "tb1= ";
+    for (int i = 0; i < n; i++)
+      cout<< tb1[i]<< " ";
+    cout<< endl;
+
+    // deuxième tableau
+    int* tb2 = init_tab2(n);
+
+    cout<< "tb2= ";
+    for (int i = 0; i < n; i++)
+      cout<< tb2[i]<< " ";
+    cout<< endl;
+
+    // fonction de remplissage
+    int* tb = rmpls(tb1, tb2, n);
+    cout<< "tb= ";
+    for (int i = 0; i < n; i++)
+      cout<< tb[i]<< " ";
+    cout<< endl;
+
+    doublons(tb, donnees, n);
+    cout<< "tbfin= ";
+    for (int i = 0; i < n; i++)
+      cout<< tb[i]<< " ";
+    cout<< endl;
+
+    // return 0;
+
+  }
+
 
 
 int main(void)
   {
-  int n = 10;
-  int m = 10;
-
-  // premier tableau
+  // final();
   int* tb1 = init_tab1(n);
+  int* tb2 = init_tab2(n);
   int* donnees = init_tab1(n);
 
-  cout<< "tb1= ";
-  for (int i = 0; i < n; i++)
-    cout<< tb1[i]<< " ";
-  cout<< endl;
-
-  // deuxième tableau
-  int* tb2 = init_tab2(n);
-
-  cout<< "tb2= ";
-  for (int i = 0; i < n; i++)
-    cout<< tb2[i]<< " ";
-  cout<< endl;
-
-  // fonction de remplissage
-  int* tb = rmpls(tb1, tb2, n);
-  cout<< "tb= ";
-  for (int i = 0; i < n; i++)
-    cout<< tb[i]<< " ";
-  cout<< endl;
-
-  doublons(tb, donnees, n);
-  cout<< "tbfin= ";
-  for (int i = 0; i < n; i++)
-    cout<< tb[i]<< " ";
-  cout<< endl;
-
-  return 0;
   }
