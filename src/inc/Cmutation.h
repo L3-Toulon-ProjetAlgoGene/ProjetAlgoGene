@@ -10,15 +10,17 @@ class Cmutation{
   private:
     int new_valeur;
     int choix_chemin;
-    int choix_empl;
-
+    int choix_empl1;
+    int choix_empl2;
 
   public:
     Cmutation();
     Cchemin chemin_aleatoire(Cpopulation &);
-    int valeur_aleatoire();
-    Cville emplacement_aleatoire(Cchemin &);
+    //int valeur_aleatoire();
+    void emplacement_aleatoire(Cchemin &);
     void Affiche();
+    void echange(Cchemin &);
+    void Affiche_chemin(Cchemin &);
 
 
 };
