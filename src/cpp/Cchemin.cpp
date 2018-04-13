@@ -88,3 +88,11 @@ Cchemin& Cchemin::melange()
     }
   return *this;
   }
+
+ostream& operator<<(ostream& o, const Cchemin& C){
+  o << "Nb ville dans le chemin : " << C.nb << endl;
+  for (int i = 0; i < C.nb; i++) {
+    o << C.chem[i] << endl;
+  }
+  return o;
+}

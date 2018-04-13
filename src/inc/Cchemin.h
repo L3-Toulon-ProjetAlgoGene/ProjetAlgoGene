@@ -2,6 +2,9 @@
 #define _CHEMIN
 
 #include "../inc/Cville.h"
+#include <iostream>
+
+using namespace std;
 
 typedef Cville* ptrCville;
 
@@ -20,6 +23,7 @@ public:
   Cville operator[](int);
   int getNb();
   Cchemin& melange();
+  friend ostream& operator<<(ostream&, const Cchemin&);
 };
 
 #endif
