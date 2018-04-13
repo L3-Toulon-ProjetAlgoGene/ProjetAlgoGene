@@ -47,10 +47,8 @@ Cchemin* creechemin(Cville* carte, int tailleville, int nbchem){
     cout << "BWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH" << endl;
     chem.melange();
     cout << "BWooooooooooooooooooooooooooooooooH" << endl;
-    cout << i << endl;
     destin[i] = chem;
     cout << "BWiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiH" << endl;
-    cout << i << endl;
   }
   cout << "BWuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuH" << endl;
   return destin;
