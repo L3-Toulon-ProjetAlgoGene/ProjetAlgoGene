@@ -19,6 +19,7 @@ class Cpopulation
     Cpopulation& operator=(const Cpopulation&);
     Cchemin operator[](const int);
     int gettaille();
+    Cchemin getmeilleur(const Cpopulation&);
 
   };
 

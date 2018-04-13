@@ -70,3 +70,16 @@ int Cpopulation::gettaille()
   {
   return taille_pop;
   }
+
+Cchemin Cpopulation::getmeilleur(const Cpopulation& pop)
+  {
+  Cchemin meilleur = tab_pop[0];
+  for (int i = 1; i < taille_pop; i++)
+    {
+    if (tab_pop[i].distance() < meilleur.distance())
+      {
+      meilleur = tab_pop[i];
+      }
+    }
+  return meilleur;
+  }
