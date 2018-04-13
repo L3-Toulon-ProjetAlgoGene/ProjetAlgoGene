@@ -41,3 +41,8 @@ float Cville::getcoord(char c){
 Cville::~Cville(){
   //cout<<"destructeur utilisé!"<<endl;
 }
+
+bool Cville::operator==(const Cville& v)
+  {
+  return (this == &v);
+  }

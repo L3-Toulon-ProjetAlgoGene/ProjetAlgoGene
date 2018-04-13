@@ -36,6 +36,7 @@ ptchemin Cselection::selec_naive(const ptchemin& a, const ptchemin& b, const ptc
   }
 
 
+
   // methodes
 
 Cchemin remplissage(Cchemin t1, Cchemin t2, int nb)
@@ -62,40 +63,32 @@ Cchemin remplissage(Cchemin t1, Cchemin t2, int nb)
   }
 
 
+void verif(Cchemin t, int ind, Cchemin d, int n)
+  {
+  bool verifi;
+  // i: indice pour parcourir lentement chaque element de d
+  for(int i = 0; i < n; i++)
+    {
+    verifi = 0;
+    for(int j = 0; j < n; j++)
+      if(d[i] == t[j])
+        verifi = 1;
+    if(verifi == 0)
+      t[ind] = d[i];
+    }
+  }
 
 
+void doublons(Cchemin t, Cchemin d, int nb)
+  {
+  // comme les tableaux t1 et t2 sont deja prives de doublons, il ne peut pas
+  // y en avoir dans la deuxieme partie du tableau (ni dans la premiere)
+  int n = nb/2;
+  // boucle pour parcourir le tableau et s'arreter sur chaque element
+  for(int i = 0; i < n; i++)
+    for(int j = 0; j < n; j++)
+      if(t[i] == t[j])
+        verif(t, i, d, nb);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Cselection::~Cselection()
-//   {
-//   delete tab[];
-//   }
-
-// ptchemin& ptchemin::operator=(const ptchemin& a)
-//   {
-//   if(*this != a)
-//     {
-//
-//     }
-//   return(*this);
-//   }
+        // cout<< i<< " "<< t[i]<< " "<< j<< " "<< t[j]<< endl;
+  }

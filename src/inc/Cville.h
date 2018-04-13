@@ -9,6 +9,7 @@ public:
     void putval(float,float);
     int getname();
     float getcoord(char);
+    bool operator==(const Cville&);
     ~Cville();
 
 

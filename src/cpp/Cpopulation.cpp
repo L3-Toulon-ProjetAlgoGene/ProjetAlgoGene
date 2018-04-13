@@ -19,6 +19,7 @@ using namespace std;
 //   }
 
 
+
 Cpopulation::Cpopulation()
   {
   taille_pop = 0;
