@@ -1,6 +1,9 @@
 #ifndef _CVILLE
 #define _CVILLE
 
+#include <iostream>
+using namespace std;
+
 class Cville
 {
 public:
@@ -10,6 +13,7 @@ public:
     int getname();
     float getcoord(char);
     bool operator==(const Cville&);
+    friend ostream& operator<<(ostream&, Cville&);
     ~Cville();
 
 

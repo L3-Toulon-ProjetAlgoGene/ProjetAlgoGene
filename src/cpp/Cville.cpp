@@ -46,3 +46,11 @@ bool Cville::operator==(const Cville& v)
   {
   return (this == &v);
   }
+
+ostream& operator<<(ostream& o, Cville& v)
+  {
+  o << v.getname()<< " :"<< endl;
+  o << "    x = "<< v.x<< endl;
+  o << "    y = "<< v.y<< endl;
+  return o;
+  }
