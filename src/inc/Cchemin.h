@@ -19,6 +19,7 @@ public:
   Cchemin& operator=(const Cchemin&);
   Cville operator[](int);
   int getNb();
+  Cchemin& melange();
 };
 
 #endif

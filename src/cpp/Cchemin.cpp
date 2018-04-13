@@ -1,6 +1,8 @@
 #include "../inc/Cchemin.h"
 #include "../inc/Cville.h"
 #include <cmath>
+#include <cstdlib>
+#include <time.h>
 
 Cchemin :: Cchemin(){
   nb = 0;
@@ -66,3 +68,23 @@ Cville Cchemin :: operator[](int i){
 int Cchemin :: getNb(){
   return nb;
 }
+
+Cchemin& Cchemin::melange()
+  {
+  srand(time(NULL));
+  int a = 0;
+  int b = 0;
+  Cville inter;
+  int nb_chang = (rand() % 50) + 1;
+  for (int i = 0; i < nb_chang; i++)
+    {
+    do {
+      a = rand()%nb;
+      b = rand()%nb;
+    } while(a == b);
+    inter = chem[a];
+    chem[a] = chem[b];
+    chem[b] = inter;
+    }
+  return *this;
+  }
