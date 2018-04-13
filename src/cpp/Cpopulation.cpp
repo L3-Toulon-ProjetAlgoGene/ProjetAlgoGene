@@ -38,8 +38,11 @@ Cpopulation::Cpopulation(const ptchemin& a, int nb_chem)
 
 Cpopulation::~Cpopulation()
   {
-  delete [] tab_pop;
-  // cout << "destructeur appelé" << endl;
+  for (int i = 0; i < taille_pop; i++)
+    {
+    delete &tab_pop[i];
+    }
+  delete[] tab_pop;
   }
 
 Cpopulation& Cpopulation::operator=(const Cpopulation& e)
