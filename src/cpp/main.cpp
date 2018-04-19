@@ -43,12 +43,18 @@ Cchemin* creechemin(Cville* carte, int tailleville, int nbchem){
   Cchemin* destin;
   destin = new Cchemin[nbchem];
   for (int i = 0; i < nbchem; i++) {
+    cout << "BWyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy" << endl;
     Cchemin chem(carte, tailleville);
+    //cout << chem << endl; // ville bien dedans  OK
     cout << "BWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH" << endl;
     chem.melange();
+    //cout << chem << endl; // villes toutes presentes et melange  OK
     cout << "BWooooooooooooooooooooooooooooooooH" << endl;
     destin[i] = chem;
+    //cout << destin[i] << endl; // insertion       OK
     cout << "BWiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiH" << endl;
+    delete &chem;// le probleme se situe bien au niveau des delete
+    cout << "BWiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiH2" << endl;
   }
   cout << "BWuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuH" << endl;
   return destin;
