@@ -45,9 +45,6 @@ float Cchemin :: distance(){
 
 Cchemin& Cchemin :: operator=(const Cchemin& C){
   if (this != &C) {
-    for (int i = 0; i < nb; i++) {
-      delete &chem[i];
-    }
     delete[] chem;
     nb = C.nb;
     chem = new Cville[nb];
