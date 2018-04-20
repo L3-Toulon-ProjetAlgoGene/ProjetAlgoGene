@@ -22,14 +22,14 @@ Cpopulation::Cpopulation(const ptchemin& a, int nb_chem)
     }
   }
 
-// Cpopulation::~Cpopulation()
-//   {
-//   // for (int i = 0; i < taille_pop; i++)
-//   //  {
-//   //   delete []&tab_pop[i];
-//   //  }
-//   delete[] tab_pop;
-//   }
+Cpopulation::~Cpopulation()
+  {
+  // // for (int i = 0; i < taille_pop; i++)
+  // //  {
+  // //   delete []&tab_pop[i];
+  // //  }
+  // delete[] tab_pop;
+  }
 
 Cpopulation& Cpopulation::operator=(const Cpopulation& e)
   {

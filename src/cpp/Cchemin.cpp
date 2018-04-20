@@ -18,7 +18,7 @@ Cchemin :: Cchemin(const ptrCville& v, int nombre){
 }
 
 Cchemin :: ~Cchemin(){
-  delete []chem;
+
 }
 
 void Cchemin :: putVal(Cville v, int i){

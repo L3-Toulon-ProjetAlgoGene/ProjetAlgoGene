@@ -62,6 +62,38 @@ Cchemin meilleurchem(Cpopulation peuple){
    return peuple.getmeilleur();
 }
 
+
+////////////////////////////////////////////////////////////////////
+
+
+Cpopulation creegenerationsuivante(Cville* carte, int nbville)
+  {
+  cout<< "halo"<< endl;
+  int nbchem = 5;
+  Cchemin* destin = creechemin(carte, nbville, nbchem);
+  Cpopulation peuple(destin, nbchem);
+  cout<< "halo2"<< endl;
+  return peuple;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////
+
+
+
+
 void afficher(Cville* tableau){
   //  Cville* tableau;
   Cville Paris, Marseille;
@@ -151,8 +183,13 @@ int touche_c(void){
   affichegen(chem, 0, 0);
   // boucle pour gen suivante
   for (int i = 0; i < nbgen; i++) {
-    cout << "Bichour" << endl;
-    //peuple = creegenerationsuivante();
+    Cpopulation peuple2;
+    peuple2 = creegenerationsuivante(carte, nbville);
+    chem.~Cchemin();
+    Cchemin chem;
+    chem = meilleurchem(peuple2);
+    affichegen(chem, 0, 0);
+    peuple2.~Cpopulation();
   }
   return 0;
 }
