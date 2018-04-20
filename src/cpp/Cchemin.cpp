@@ -18,11 +18,7 @@ Cchemin :: Cchemin(const ptrCville& v, int nombre){
 }
 
 Cchemin :: ~Cchemin(){
-  //for (int i = 0; i < nb; i++) {
-  //  delete &chem[i];
-  //}
-  //delete[] chem;
-  delete chem;
+  delete []chem;
 }
 
 void Cchemin :: putVal(Cville v, int i){
@@ -92,8 +88,9 @@ Cchemin& Cchemin::melange()
 
 ostream& operator<<(ostream& o, const Cchemin& C){
   o << "Nb ville dans le chemin : " << C.nb << endl;
+  o << "adresse du chemin: "<< &C<< endl;
   for (int i = 0; i < C.nb; i++) {
-    o << C.chem[i] << endl;
+    o << "chem["<< i<< "]"<< C.chem[i] << endl;
   }
   return o;
 }

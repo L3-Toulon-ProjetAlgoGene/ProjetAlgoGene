@@ -17,9 +17,9 @@ void Cville::init(){
   ville=i++;
   x=rand()%1000;
   y=rand()%1000;
-  cout<<"ville= "<<ville<<endl;
-  cout<<"x= "<<x<<endl;
-  cout<<"y= "<<y<<endl;
+  // cout<<"ville= "<<ville<<endl;
+  // cout<<"x= "<<x<<endl;
+  // cout<<"y= "<<y<<endl;
 
 }
 

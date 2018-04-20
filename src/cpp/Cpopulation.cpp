@@ -4,21 +4,6 @@
 
 using namespace std;
 
-// fonction pour afficher la population
-// void Cpopulation::affiche()
-//   {
-//   cout<<"taille de la population: "<<taille<<endl;
-//   int i;
-//   for(i = 0; i < taille; i++)
-//     {
-//     int j;
-//     for(j = 0; j < taille2; j++)
-//         cout<<tab_pop[i][j]<<" "<<endl;
-//     cout<<"\n"<<endl;
-//   }
-//   }
-
-
 
 Cpopulation::Cpopulation()
   {
@@ -37,15 +22,14 @@ Cpopulation::Cpopulation(const ptchemin& a, int nb_chem)
     }
   }
 
-Cpopulation::~Cpopulation()
-  {
-  //for (int i = 0; i < taille_pop; i++)
-  //  {
-  //  delete &tab_pop[i];
-  //  }
-  //delete[] tab_pop;
-  delete tab_pop;
-  }
+// Cpopulation::~Cpopulation()
+//   {
+//   // for (int i = 0; i < taille_pop; i++)
+//   //  {
+//   //   delete []&tab_pop[i];
+//   //  }
+//   delete[] tab_pop;
+//   }
 
 Cpopulation& Cpopulation::operator=(const Cpopulation& e)
   {

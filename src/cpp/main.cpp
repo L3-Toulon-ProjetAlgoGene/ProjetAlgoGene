@@ -43,25 +43,15 @@ Cchemin* creechemin(Cville* carte, int tailleville, int nbchem){
   Cchemin* destin;
   destin = new Cchemin[nbchem];
   for (int i = 0; i < nbchem; i++) {
-    cout << "BWyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy" << endl;
     Cchemin chem(carte, tailleville);
-    //cout << chem << endl; // ville bien dedans  OK
-    cout << "BWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH" << endl;
     chem.melange();
-    //cout << chem << endl; // villes toutes presentes et melange  OK
-    cout << "BWooooooooooooooooooooooooooooooooH" << endl;
     destin[i] = chem;
-    //cout << destin[i] << endl; // insertion       OK
-    cout << "BWiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiH" << endl;
-    delete &chem;// le probleme se situe bien au niveau des delete
-    cout << "BWiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiH2" << endl;
   }
-  cout << "BWuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuH" << endl;
   return destin;
 }
 
 Cpopulation creepremieregeneration(void){
-  int nbville = 50, nbchem = 25;
+  int nbville = 10, nbchem = 5;
   Cville* carte = creeville(nbville);
   Cchemin* destin = creechemin(carte, nbville, nbchem);
   Cpopulation peuple(destin, nbchem);
@@ -69,7 +59,7 @@ Cpopulation creepremieregeneration(void){
 }
 
 Cchemin meilleurchem(Cpopulation peuple){
-  return peuple.getmeilleur();
+   return peuple.getmeilleur();
 }
 
 void afficher(Cville* tableau){
@@ -97,6 +87,7 @@ int touche_a(void){
 }
 
 int touche_b(void){
+  cng_clear_screen();
   Cchemin chem;
   Cpopulation peuple;
   int nb, x1, y1, x2, y2;
@@ -106,6 +97,7 @@ int touche_b(void){
   x1 = chem[0].getcoord('x');
   y1 = chem[0].getcoord('y');
   cng_put_pixel(x1, y1);
+
   for (int i = 1; i < nb; i++) {
     x2 = chem[i].getcoord('x');
     y2 = chem[i].getcoord('y');
@@ -114,10 +106,15 @@ int touche_b(void){
     x1 = x2;
     y1 = y2;
   }
+  cng_swap_screen();
+  cng_delay(3000);
+  cng_clear_screen();
+  menu();
   return 0;
 }
 
 int main(int argc, char** argv)  {
+
   cng_init_window(&argc, argv, (char *)"CNG Test", WSIZE, HSIZE);
   cng_display_func(menu);
   cng_assoc_key(cng_a, touche_a);

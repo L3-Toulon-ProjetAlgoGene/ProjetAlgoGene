@@ -14,7 +14,7 @@ class Cpopulation
   public:
     Cpopulation();
     Cpopulation(const ptchemin&, int);
-    ~Cpopulation();
+    // ~Cpopulation();
     void affiche();
     Cpopulation& operator=(const Cpopulation&);
     Cchemin operator[](const int);
