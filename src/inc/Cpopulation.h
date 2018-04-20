@@ -20,6 +20,7 @@ class Cpopulation
     Cchemin operator[](const int);
     int gettaille();
     Cchemin getmeilleur();
+    float getmoyenne();
 
   };
 

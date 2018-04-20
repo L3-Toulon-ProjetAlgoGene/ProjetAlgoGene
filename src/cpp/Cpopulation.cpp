@@ -69,3 +69,15 @@ Cchemin Cpopulation::getmeilleur()
     }
   return meilleur;
   }
+
+
+float Cpopulation::getmoyenne()
+  {
+  int moyenne = 0;
+  for(int i = 0; i < taille_pop; i++)
+    {
+    moyenne = moyenne + tab_pop[i].distance();
+    }
+  moyenne = moyenne / taille_pop;
+  return moyenne;
+  }
