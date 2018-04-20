@@ -3,6 +3,8 @@
 #include "../inc/Cville.h"
 #include "../inc/cng.h"
 #include <iostream>
+#include <string>
+#include <sstream>
 
 #define WSIZE 1280
 #define HSIZE 1024
@@ -150,6 +152,10 @@ int touche_b(void){
 
 void affichegen(Cchemin chem ,float meilleurdist, float distmoyenne) {
   int nb, x1, y1, x2, y2;
+  string debdist, recup;
+  char* affic;
+  stringstream ss;
+  debdist = "Meilleur distance actuelle : ";
   nb = chem.getNb();
   x1 = chem[0].getcoord('x');
   y1 = chem[0].getcoord('y');
@@ -162,6 +168,10 @@ void affichegen(Cchemin chem ,float meilleurdist, float distmoyenne) {
     x1 = x2;
     y1 = y2;
   }
+  ss << debdist << meilleurdist;
+  recup = ss.str();
+  affic = (char*)recup.c_str();
+  cng_draw_string(affic, 5, 1000);
   //si on veut la gen x je change le temps du delay jusqu a gen -1 puis gros temps pour gen x par rapport a une touche
   cng_swap_screen();
   cng_delay(3000);
@@ -172,7 +182,7 @@ int touche_c(void){
   cng_clear_screen();
   Cchemin chem;
   Cpopulation peuple;
-  int nbgen, nbville;
+  int nbgen, nbville, dist;
   Cville* carte;
   nbville = 10;
   carte = creeville(nbville);
@@ -180,15 +190,16 @@ int touche_c(void){
   nbgen = 49;
   chem = meilleurchem(peuple);
   // manque recuperation du fitness moyen
-  affichegen(chem, 0, 0);
-  // boucle pour gen suivante
+  dist = chem.distance();
+  affichegen(chem, dist, 0);
   for (int i = 0; i < nbgen; i++) {
     Cpopulation peuple2;
     peuple2 = creegenerationsuivante(carte, nbville);
     chem.~Cchemin();
     Cchemin chem;
     chem = meilleurchem(peuple2);
-    affichegen(chem, 0, 0);
+    dist = chem.distance();
+    affichegen(chem, dist, 0);
     peuple2.~Cpopulation();
   }
   return 0;
