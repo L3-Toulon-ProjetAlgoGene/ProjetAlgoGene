@@ -14,6 +14,7 @@ void menu(void){
   cng_draw_string("MENU", 20, 10);
   cng_draw_string("[a] Test avec 2 villes", 20, 50);
   cng_draw_string("[b] Affiche meilleur 1ere gen", 20, 65);
+  cng_draw_string("[c] Algo genetique", 20, 80);
   cng_swap_screen();
 }
 
@@ -50,9 +51,8 @@ Cchemin* creechemin(Cville* carte, int tailleville, int nbchem){
   return destin;
 }
 
-Cpopulation creepremieregeneration(void){
-  int nbville = 10, nbchem = 5;
-  Cville* carte = creeville(nbville);
+Cpopulation creepremieregeneration(Cville* carte, int nbville){
+  int nbchem = 5;
   Cchemin* destin = creechemin(carte, nbville, nbchem);
   Cpopulation peuple(destin, nbchem);
   return peuple;
@@ -90,8 +90,11 @@ int touche_b(void){
   cng_clear_screen();
   Cchemin chem;
   Cpopulation peuple;
-  int nb, x1, y1, x2, y2;
-  peuple = creepremieregeneration();
+  int nb, x1, y1, x2, y2, nbville;
+  Cville* carte;
+  nbville = 10;
+  carte = creeville(nbville);
+  peuple = creepremieregeneration(carte, nbville);
   chem = meilleurchem(peuple);
   nb = chem.getNb();
   x1 = chem[0].getcoord('x');
@@ -113,12 +116,54 @@ int touche_b(void){
   return 0;
 }
 
+void affichegen(Cchemin chem ,float meilleurdist, float distmoyenne) {
+  int nb, x1, y1, x2, y2;
+  nb = chem.getNb();
+  x1 = chem[0].getcoord('x');
+  y1 = chem[0].getcoord('y');
+  cng_put_pixel(x1, y1);
+  for (int i = 1; i < nb; i++) {
+    x2 = chem[i].getcoord('x');
+    y2 = chem[i].getcoord('y');
+    cng_put_pixel(x2, y2);
+    cng_line(x1, y1, x2, y2);
+    x1 = x2;
+    y1 = y2;
+  }
+  //si on veut la gen x je change le temps du delay jusqu a gen -1 puis gros temps pour gen x par rapport a une touche
+  cng_swap_screen();
+  cng_delay(3000);
+  cng_clear_screen();
+}
+
+int touche_c(void){
+  cng_clear_screen();
+  Cchemin chem;
+  Cpopulation peuple;
+  int nbgen, nbville;
+  Cville* carte;
+  nbville = 10;
+  carte = creeville(nbville);
+  peuple = creepremieregeneration(carte, nbville);
+  nbgen = 49;
+  chem = meilleurchem(peuple);
+  // manque recuperation du fitness moyen
+  affichegen(chem, 0, 0);
+  // boucle pour gen suivante
+  for (int i = 0; i < nbgen; i++) {
+    cout << "Bichour" << endl;
+    //peuple = creegenerationsuivante();
+  }
+  return 0;
+}
+
 int main(int argc, char** argv)  {
 
   cng_init_window(&argc, argv, (char *)"CNG Test", WSIZE, HSIZE);
   cng_display_func(menu);
   cng_assoc_key(cng_a, touche_a);
   cng_assoc_key(cng_b, touche_b);
+  cng_assoc_key(cng_c, touche_c);
 //  cng_clear_screen();
   cng_main_loop();
   cng_destroy_window();
