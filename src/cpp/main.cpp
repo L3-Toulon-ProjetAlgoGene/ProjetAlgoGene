@@ -70,11 +70,9 @@ Cchemin meilleurchem(Cpopulation peuple){
 
 Cpopulation creegenerationsuivante(Cville* carte, int nbville)
   {
-  cout<< "halo"<< endl;
   int nbchem = 5;
   Cchemin* destin = creechemin(carte, nbville, nbchem);
   Cpopulation peuple(destin, nbchem);
-  cout<< "halo2"<< endl;
   return peuple;
   }
 
@@ -152,10 +150,13 @@ int touche_b(void){
 
 void affichegen(Cchemin chem ,float meilleurdist, float distmoyenne) {
   int nb, x1, y1, x2, y2;
-  string debdist, recup;
-  char* affic;
-  stringstream ss;
+  static int nbgen = 0;
+  string debdist, recup, debmoy, recupmoy, recupgen, debgen;
+  char* afficdist, *afficmoy, *afficgen;
+  stringstream ss, ss2, ss3;
   debdist = "Meilleur distance actuelle : ";
+  debmoy = "Fitness moyenne de la gen actuelle : ";
+  debgen = "Generation numero : ";
   nb = chem.getNb();
   x1 = chem[0].getcoord('x');
   y1 = chem[0].getcoord('y');
@@ -170,8 +171,17 @@ void affichegen(Cchemin chem ,float meilleurdist, float distmoyenne) {
   }
   ss << debdist << meilleurdist;
   recup = ss.str();
-  affic = (char*)recup.c_str();
-  cng_draw_string(affic, 5, 1000);
+  afficdist = (char*)recup.c_str();
+  ss2 << debmoy << distmoyenne;
+  recupmoy = ss2.str();
+  afficmoy = (char*)recupmoy.c_str();
+  ss3 << debgen << nbgen;
+  recupgen = ss3.str();
+  afficgen = (char*)recupgen.c_str();
+  nbgen += 1;
+  cng_draw_string(afficdist, 5, 1000);
+  cng_draw_string(afficmoy, 200, 1000);
+  cng_draw_string(afficgen, 450, 1000);
   //si on veut la gen x je change le temps du delay jusqu a gen -1 puis gros temps pour gen x par rapport a une touche
   cng_swap_screen();
   cng_delay(3000);
@@ -183,6 +193,7 @@ int touche_c(void){
   Cchemin chem;
   Cpopulation peuple;
   int nbgen, nbville, dist;
+  float moy;
   Cville* carte;
   nbville = 10;
   carte = creeville(nbville);
@@ -191,7 +202,8 @@ int touche_c(void){
   chem = meilleurchem(peuple);
   // manque recuperation du fitness moyen
   dist = chem.distance();
-  affichegen(chem, dist, 0);
+  moy = peuple.getmoyenne();
+  affichegen(chem, dist, moy);
   for (int i = 0; i < nbgen; i++) {
     Cpopulation peuple2;
     peuple2 = creegenerationsuivante(carte, nbville);
@@ -199,7 +211,8 @@ int touche_c(void){
     Cchemin chem;
     chem = meilleurchem(peuple2);
     dist = chem.distance();
-    affichegen(chem, dist, 0);
+    moy = peuple2.getmoyenne();
+    affichegen(chem, dist, moy);
     peuple2.~Cpopulation();
   }
   return 0;
