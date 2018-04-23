@@ -92,3 +92,16 @@ ostream& operator<<(ostream& o, const Cchemin& C){
   }
   return o;
 }
+
+
+
+bool Cchemin :: operator==(Cchemin& a)
+  {
+  if (nb == a.nb)
+    for (int i = 0; i < nb; i++)
+      {
+      if(chem[i].getname() != a[i].getname())
+        return 0;
+      }
+    return 1;
+  }

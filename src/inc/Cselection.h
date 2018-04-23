@@ -13,6 +13,7 @@ class Cselection
     Cselection();
     Cselection(Cchemin&, Cchemin&);
     ~Cselection();
+    Cchemin gettab();
     // ptchemin& operator=(const ptchemin&);
     // ptchemin selec_naive(const ptchemin&, const ptchemin&, const ptchemin&);
 

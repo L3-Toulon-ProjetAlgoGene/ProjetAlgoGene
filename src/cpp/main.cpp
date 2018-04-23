@@ -69,10 +69,43 @@ Cchemin meilleurchem(Cpopulation peuple){
 ////////////////////////////////////////////////////////////////////
 
 
+void verif(Cchemin& t, int ind, Cville* d)
+  {
+  bool verifi;
+  int n = t.getNb();
+  // i: indice pour parcourir lentement chaque element de d
+  for(int i = 0; i < n; i++)
+    {
+    verifi = 0;
+    for(int j = 0; j < n; j++)
+      if(d[i] == t[j])
+        verifi = 1;
+    if(verifi == 0)
+      t[ind] = d[i];
+    }
+  }
+
+
+void doublons(Cchemin& t, Cville* d)
+  {
+  // comme les tableaux t1 et t2 sont deja prives de doublons, il ne peut pas
+  // y en avoir dans la deuxieme partie du tableau (ni dans la premiere)
+  int nb = t.getNb();
+  int n = nb/2 + 1;
+  // boucle pour parcourir le tableau et s'arreter sur chaque element
+  for(int i = 0; i < n; i++)
+    for(int j = 0; j < n; j++)
+      if(t[i] == t[j])
+        verif(t, i, d);
+  }
+
+
+
+
 Cpopulation creegenerationsuivante(Cville* carte, int nbville, Cpopulation genpre)
   {
   int nbchem = 5, ind1, ind2;
-  Cchemin select, tab1, tab2;
+  Cchemin select, tab1, tab2, n_tab;
   ind1 = genpre.chemin_alea();
   do {
     ind2 = genpre.chemin_alea();
@@ -82,6 +115,11 @@ Cpopulation creegenerationsuivante(Cville* carte, int nbville, Cpopulation genpr
   cout<< "ind1= "<< ind1<< endl;
   cout<< "ind2= "<< ind2<< endl;
   Cselection test(tab1, tab2);
+  n_tab = test.gettab();
+  doublons(n_tab, carte);
+
+
+
   Cchemin* destin = creechemin(carte, nbville, nbchem);
   Cpopulation peuple(destin, nbchem);
   return peuple;

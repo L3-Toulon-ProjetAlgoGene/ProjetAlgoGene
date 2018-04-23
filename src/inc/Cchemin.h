@@ -20,6 +20,7 @@ public:
   ptrCville getTab();
   float distance();
   Cchemin& operator=(const Cchemin&);
+  bool operator==(Cchemin&);
   Cville operator[](int);
   int getNb();
   Cchemin& melange();
