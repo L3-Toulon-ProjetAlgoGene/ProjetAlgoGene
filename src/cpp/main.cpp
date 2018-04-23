@@ -213,7 +213,7 @@ int touche_c(void){
   chem = meilleurchem(peuplepre);
   // manque recuperation du fitness moyen
   dist = chem.distance();
-  moy = peuple.getmoyenne();
+  moy = peuplepre.getmoyenne();
   affichegen(chem, dist, moy);
   for (int i = 0; i < nbgen; i++) {
     Cpopulation peuplesuiv;
