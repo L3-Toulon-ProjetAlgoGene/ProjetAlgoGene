@@ -1,6 +1,7 @@
 #include"../inc/Cpopulation.h"
 #include"../inc/Cchemin.h"
 #include "../inc/Cville.h"
+#include "../inc/Cselection.h"
 #include "../inc/cng.h"
 #include <iostream>
 #include <string>
@@ -68,13 +69,21 @@ Cchemin meilleurchem(Cpopulation peuple){
 ////////////////////////////////////////////////////////////////////
 
 
-Cpopulation creegenerationsuivante(Cville* carte, int nbville)
+Cpopulation creegenerationsuivante(Cville* carte, int nbville, Cpopulation genpre)
   {
-  cout<< "halo"<< endl;
-  int nbchem = 5;
+  int nbchem = 5, ind1, ind2;
+  Cchemin select, tab1, tab2;
+  ind1 = genpre.chemin_alea();
+  do {
+    ind2 = genpre.chemin_alea();
+  } while(ind1 == ind2);
+  tab1 = genpre[ind1];
+  tab2 = genpre[ind2];
+  cout<< "ind1= "<< ind1<< endl;
+  cout<< "ind2= "<< ind2<< endl;
+  Cselection test(tab1, tab2);
   Cchemin* destin = creechemin(carte, nbville, nbchem);
   Cpopulation peuple(destin, nbchem);
-  cout<< "halo2"<< endl;
   return peuple;
   }
 
@@ -181,26 +190,29 @@ void affichegen(Cchemin chem ,float meilleurdist, float distmoyenne) {
 int touche_c(void){
   cng_clear_screen();
   Cchemin chem;
-  Cpopulation peuple;
+  Cpopulation peuplepre;
   int nbgen, nbville, dist;
   Cville* carte;
   nbville = 10;
   carte = creeville(nbville);
-  peuple = creepremieregeneration(carte, nbville);
+  peuplepre = creepremieregeneration(carte, nbville);
   nbgen = 49;
-  chem = meilleurchem(peuple);
+  chem = meilleurchem(peuplepre);
   // manque recuperation du fitness moyen
   dist = chem.distance();
   affichegen(chem, dist, 0);
   for (int i = 0; i < nbgen; i++) {
-    Cpopulation peuple2;
-    peuple2 = creegenerationsuivante(carte, nbville);
+    Cpopulation peuplesuiv;
+    peuplesuiv = creegenerationsuivante(carte, nbville, peuplepre);
     chem.~Cchemin();
     Cchemin chem;
-    chem = meilleurchem(peuple2);
+    chem = meilleurchem(peuplesuiv);
     dist = chem.distance();
     affichegen(chem, dist, 0);
-    peuple2.~Cpopulation();
+    peuplepre.~Cpopulation();
+    Cpopulation peuplepre;
+    peuplepre = peuplesuiv;
+    peuplesuiv.~Cpopulation();
   }
   return 0;
 }

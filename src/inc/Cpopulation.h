@@ -22,8 +22,8 @@ class Cpopulation
     Cchemin getmeilleur();
     float getmoyenne();
 
+    int chemin_alea();
+
   };
-
-
 
 #endif

@@ -15,5 +15,5 @@ Cville.o: inc/Cville.h cpp/Cville.cpp
 Cchemin.o: inc/Cchemin.h cpp/Cchemin.cpp inc/Cville.h
 	g++ -c cpp/Cchemin.cpp
 
-Cselection.o: inc/Cselection.h inc/Cpopulation.h inc/Cchemin.h cpp/Cselection.cpp
+Cselection.o: inc/Cselection.h inc/Cpopulation.h cpp/Cselection.cpp
 	g++ -c cpp/Cselection.cpp

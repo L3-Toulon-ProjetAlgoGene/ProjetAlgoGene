@@ -65,7 +65,8 @@ int Cchemin :: getNb(){
 
 Cchemin& Cchemin::melange()
   {
-  srand(time(NULL));
+  static int i = 1;
+  srand(time(NULL)*i++);
   int a = 0;
   int b = 0;
   Cville inter;

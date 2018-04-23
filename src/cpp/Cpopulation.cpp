@@ -1,6 +1,8 @@
 #include"../inc/Cpopulation.h"
 #include"../inc/Cchemin.h"
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -73,11 +75,22 @@ Cchemin Cpopulation::getmeilleur()
 
 float Cpopulation::getmoyenne()
   {
-  int moyenne = 0;
+  float moyenne = 0;
   for(int i = 0; i < taille_pop; i++)
     {
     moyenne = moyenne + tab_pop[i].distance();
     }
   moyenne = moyenne / taille_pop;
   return moyenne;
+  }
+
+
+int Cpopulation::chemin_alea()
+  {
+  static int i = 1;
+  int taille, empl;
+	srand(time(NULL)*i++);
+  taille = gettaille();
+	empl = rand()%taille;
+	return empl;
   }
