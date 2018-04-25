@@ -66,9 +66,6 @@ Cchemin meilleurchem(Cpopulation peuple){
 }
 
 
-////////////////////////////////////////////////////////////////////
-
-
 void verif(Cchemin& t, int ind, Cville* d)
   {
   bool verifi;
@@ -117,28 +114,10 @@ Cpopulation creegenerationsuivante(Cville* carte, int nbville, Cpopulation genpr
   Cselection test(tab1, tab2);
   n_tab = test.gettab();
   doublons(n_tab, carte);
-
-
-
   Cchemin* destin = creechemin(carte, nbville, nbchem);
   Cpopulation peuple(destin, nbchem);
   return peuple;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-////////////////////////////////////////////////////////////////////
 
 
 
@@ -230,10 +209,10 @@ void affichegen(Cchemin chem ,float meilleurdist, float distmoyenne) {
   nbgen += 1;
   cng_draw_string(afficdist, 5, 1000);
   cng_draw_string(afficmoy, 200, 1000);
-  cng_draw_string(afficgen, 450, 1000);
+  cng_draw_string(afficgen, 500, 1000);
   //si on veut la gen x je change le temps du delay jusqu a gen -1 puis gros temps pour gen x par rapport a une touche
   cng_swap_screen();
-  cng_delay(3000);
+  cng_delay(1500);
   cng_clear_screen();
 }
 
@@ -247,9 +226,8 @@ int touche_c(void){
   nbville = 10;
   carte = creeville(nbville);
   peuplepre = creepremieregeneration(carte, nbville);
-  nbgen = 49;
+  nbgen = 100;
   chem = meilleurchem(peuplepre);
-  // manque recuperation du fitness moyen
   dist = chem.distance();
   moy = peuplepre.getmoyenne();
   affichegen(chem, dist, moy);
