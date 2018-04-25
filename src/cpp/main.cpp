@@ -95,8 +95,10 @@ void doublons(Cchemin& t, Cville* d)
   // boucle pour parcourir le tableau et s'arreter sur chaque element
   for(int i = 0; i < n; i++)
     for(int j = 0; j < n; j++)
-      if(t[i] == t[j])
-        verif(t, i, d);
+      if (i != j){
+        if(t[i] == t[j])
+          verif(t, i, d);
+      }
   }
 
 
@@ -112,8 +114,6 @@ Cpopulation creegenerationsuivante(Cville* carte, int nbville, Cpopulation genpr
   } while(ind1 == ind2);
   tab1 = genpre[ind1];
   tab2 = genpre[ind2];
-  cout<< "ind1= "<< ind1<< endl;
-  cout<< "ind2= "<< ind2<< endl;
   Cselection test(tab1, tab2);
   n_tab = test.gettab();
   doublons(n_tab, carte);
