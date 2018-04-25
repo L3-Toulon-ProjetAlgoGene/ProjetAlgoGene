@@ -223,7 +223,7 @@ int touche_c(void){
   int nbgen, nbville, dist;
   float moy;
   Cville* carte;
-  nbville = 10;
+  nbville = 100;
   carte = creeville(nbville);
   peuplepre = creepremieregeneration(carte, nbville);
   nbgen = 100;
